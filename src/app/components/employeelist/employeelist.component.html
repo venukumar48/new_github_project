@@ -1,0 +1,138 @@
+<h1 class="text-center">EMPLOYEE LIST</h1>
+
+<div class="container fluid">
+
+    <div class="row">
+
+<div class="col-sm-8">
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>
+                EMP_ID
+            </th>
+            <th>
+                EMP_NAME
+            </th>
+            <th>
+                EMP_SAL
+            </th>
+            <th>
+                ACTIONS
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees;let i=index">
+            <td>
+                 {{emp.id}}
+            </td>
+            <td>
+                {{emp.name}} 
+            </td>
+            <td>
+                {{emp.sal}}
+            </td>
+            <!-- <button class="btn btn-success">VIEW</button> -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ViewModal" (click)="viewEmp(emp)">
+                VIEW
+              </button>
+              
+            <!-- <button type="button" class="btn btn-secondary" (click)="editEmp(id.value,name.value,sal.value)">EDIT</button> -->
+            <button  type="button" class="btn btn-danger" (click)="deleteEmp(i)">DELETE</button>
+            <button type="submit"(click)="editemp(emp)">EDIT</button>
+
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+
+ 
+
+
+    </div>
+</div>
+<hr>
+
+
+
+
+
+<!-- Button trigger modal -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="ViewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">EMPLOYEE DETAILS</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <h1>EMP_ID:{{selectedEmployee.id}}</h1>
+        <h1>EMP_NAME:{{selectedEmployee.name}}</h1>
+        <h1>EMP_SAL:{{selectedEmployee.sal}}</h1>
+       
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="ADDModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">EMPLOYEE DETAILS</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form>
+
+
+      </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="class row">
+ 
+  ID<input type="text" class="text" #id>
+  FIRST NAME<input type="text" class="text" #name>
+  SALARY<input type="text" class="text" #sal>
+
+<button type="submit"(click)="ADDEMP(id.value,name.value,sal.value)">ADD</button>
+
+</div>
+
+
+<div class="class row" *ngIf="selectedEmployee">
+ 
+  ID<input type="text" class="text" [(ngModel)]="selectedEmployee.id">
+  FIRST NAME<input type="text" class="text" [(ngModel)]="selectedEmployee.name" >
+  SALARY<input type="text" class="text" [(ngModel)]="selectedEmployee.sal">
+
+<button type="submit"(click)="save()">save</button>
+
+</div>
+
+
+

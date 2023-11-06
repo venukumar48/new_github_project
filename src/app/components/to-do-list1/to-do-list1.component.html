@@ -1,0 +1,11 @@
+<p>to-do-list1 works!</p>
+
+<div *ngFor="let item of Todo$ |async">
+<span [ngClass]="item.completed ? 'text-decoration-line-through':' '">{{item.text}}
+</span>
+
+<button (click)="DELETE(item.id)">*</button>
+<button (click)="toggled(item.id)">TOGGLE</button> 
+
+
+</div>

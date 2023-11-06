@@ -1,0 +1,14 @@
+<!-- <div>
+  <label for="firstSelect">Select an option:</label>
+  <select id="firstSelect" [(ngModel)]="selectedFirstOption">
+    <option *ngFor="let option of selectOptions" [value]="option.name">{{ option.name }}</option>
+  </select>
+  {{option.name}}
+</div>
+<div *ngIf="selectedFirstOption">
+  <label for="secondSelect">Related options:</label>
+  <select id="secondSelect" [(ngModel)]="selectedSecondOption">
+    <option *ngFor="let suboption of selectOptions.find(option => option.name === selectedFirstOption)?.suboptions" [value]="suboption">{{ suboption }}</option>
+  </select>
+  {{suboption}}
+</div> -->

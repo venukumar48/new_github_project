@@ -1,0 +1,49 @@
+<h2 class="text-center">PRODUCT LIST</h2>
+<hr>
+<div class="container">
+ <div class="row">
+
+<div class="col-sm-8">
+<input  class="text-center form-control" placeholder="search" [(ngModel)]="searchText">
+
+</div>
+<div class="col-sm-4">
+<button class="btn btn-primary" (click)="hightolow()">HIGH</button>
+<button class="btn btn-primary"(click)="lowToHigh()">LOW</button>
+<button class="btn btn-primary">SEARCH</button>
+
+
+</div>
+
+ </div>
+<div class="row">
+
+<div class="col-sm-3" *ngFor="let product of products | paginate: {itemsPerPage:8, currentPage:p}">
+
+    <div class="card product" style="width: 18rem;">
+        <img src={{product.image}} class="card-img-top" alt="not available">
+        <div class="card-body">
+          <h5 class="card-title">{{product.title}}</h5>
+          <h5 class="card-text">{{product.text}}</h5>
+          <h5 class="card-text">PRICE:{{product.price}}</h5>
+          <h5 class="card-text">RATE:{{product.rating.rate}}</h5>
+
+
+          <button class="primary">BUY NOW</button>
+          <button class="secondary">ADD TO CART</button>
+          </div>
+      </div>
+
+
+
+</div>
+<div class="col-sm-4 offset-4">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>
+</div>
+
+
+
+</div>
+

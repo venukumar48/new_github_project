@@ -1,0 +1,94 @@
+<style>
+    button {
+        margin: 5px
+    }
+</style>
+<h1>Angular Nested FormArray / Dynamic FormArray</h1>
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="employees">
+        <div *ngFor="let emp of employees().controls; let empIndex=index">
+            <div [formGroupName]="empIndex" style="border: 2px solid blue; padding: 10px; width: 700px; margin: 10px;">
+                {{empIndex}} First Name :
+                <input type="text" formControlName="firstName" />
+                Last Name:
+                <input type="text" formControlName="lastName" />
+
+                <button (click)="removeEmployee(empIndex)">Remove</button>
+
+                <div formArrayName="skills">
+                    <div *ngFor="let skill of employeeSkills(empIndex).controls; let skillIndex=index">
+                        <div [formGroupName]="skillIndex">
+                            {{skillIndex}} Skill :
+                            <input type="text" formControlName="skill" />
+                            Exp:
+                            <input type="text" formControlName="exp" />
+
+                            <button (click)="removeEmployeeSkill(empIndex,skillIndex)">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" (click)="addEmployeeSkill(empIndex)">
+                    Add Skill
+                </button>
+            </div>
+        </div>
+        <button type="button" (click)="addEmployee()">Add Employee</button>
+    </div>
+    <input type="submit" value="submit">
+</form>
+
+{{this.empForm.value | json}} 
+
+
+<!-- 
+<div>
+<form [formGroup]="myform" (ngSubmit)="onSubmit()">
+
+<div formArrayName="employees">
+
+<div *ngFor="let employee of employees().controls; let empindex=index">
+<div [formGroupName]="empindex">
+{{empindex}}FIRST NAME: <input formControlName="firstName"><br>
+LAST NAME:<input formControlName="LastName">
+</div>
+
+
+<div formArrayName="skills">
+<div *ngFor="let skill of empskills(empindex).controls; let skillindex=index">
+<div [formGroupName]="skillindex">
+{{skillindex}}SKILL: <input formControlName="skill"/><br>
+    EXP:<input formControlName="Exp"/>  
+</div>
+</div>   
+</div>
+
+<button (click)="addEmployeeSkill(empindex)">SKILLS</button>
+
+</div>
+
+
+</div>
+<button (click)="AddEmp()">ADD EMPLOYEE</button>
+<input type="submit" value="submit">
+</form>
+
+
+</div>
+
+{{this.myform.value | json}}
+
+
+
+
+
+
+
+
+
+
+ -->
+
+
+ 

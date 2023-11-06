@@ -1,0 +1,26 @@
+<h1>USERS COMPONENT</h1>
+
+<table border="5" >
+ <thead>
+   <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>EMAIL</th>
+      <th>USERNAME</th>
+   </tr>
+ </thead>
+ <tbody>
+    <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.username}}</td>
+
+   </tr>
+ </tbody>
+
+
+
+
+
+</table>

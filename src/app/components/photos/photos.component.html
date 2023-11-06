@@ -1,0 +1,21 @@
+<p>photos works!</p>
+<img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif" alt="img" *ngIf="isLoading">
+
+<div class="container" *ngIf="!isLoading">
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let photo of photos">
+            <div class="card text-center">
+                <img src={{photo.thumbnailUrl}} class="card-img-top" alt="not available">
+                <div class="card-body">
+                    <h5 class="card-title">{{photo.id}}</h5>
+                    <h5 class="card-title">{{photo.title}}</h5>
+                    <!-- <button class="btn btn-primary" [routerLink]="['/photodetails', photo.id]"
+                    >View</button>
+                     -->
+                    <button class="btn btn-primary" [routerLink]="['/photodetails']" [queryParams]="{id:photo.id,title:photo.title}"
+                    >View</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

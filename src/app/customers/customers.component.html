@@ -1,0 +1,32 @@
+ <!-- <p>customers works!</p>
+
+    
+ <h3>
+    You have selected this fruit: {{selected_fruit}}
+</h3>
+<div class="form-group mt-5">
+    <label for="sel1">
+        Select Any Fruit:
+    </label>
+    <select class="form-control" ng-Model="selected_fruit"
+            (change)="onChange($event)">
+            <option value="0">select the fruit</option>
+        <option *ngFor="let fruit of Fruits"  value="{{fruit.name}}">{{fruit.name}}</option>
+       
+    </select>
+    {{selected_fruit}}
+</div>
+
+<div>
+    <label for="categorySelect">Select Category:</label>
+    <select id="categorySelect" [(ngModel)]="selectedCategory">
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+  
+  <div>
+    <label for="optionSelect">Select Option:</label>
+    <select id="optionSelect" [(ngModel)]="selectedOption">
+      <option *ngFor="let option of options" [value]="option" [hidden]="!isOptionVisible(option)">{{ option }}</option>
+    </select>
+  </div> -->

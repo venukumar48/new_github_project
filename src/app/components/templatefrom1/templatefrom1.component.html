@@ -1,0 +1,24 @@
+<p>templatefrom1 works!</p>
+
+<form #myform="ngForm" (submit)="submitform(myform)" >
+<p>
+NAME:<input #firstName="ngModel" name="firstName" [(ngModel)]="user.firstName" required minlength="5">
+<span class="text-danger" *ngIf="firstName.hasError('required')">firstName is required</span>
+<span class="text-danger" *ngIf="firstName.hasError('minlength')">
+    Minimum 5 Characters required
+</span>
+</p>
+EMAIL:<input #name name="email" ngModel><br>
+
+PHONE:<input #name name="phone" ngModel><br>
+
+<fieldset ngModelGroup="address">
+ADDRESS1:<input #address1 name="address1" ngModel><br>
+ADDRESS2:<input #address2 name="address2" ngModel><br>
+</fieldset>
+
+<input type="submit" class="mx-2">
+<input type="reset">
+<button type="button" (click)="reset(myform)">RESET</button>
+</form>
+{{myform.value|json}}
